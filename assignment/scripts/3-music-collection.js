@@ -28,9 +28,10 @@ addToCollection(myCollection, 'Hybrid Theory', 'Linkin Park', 2000);
 console.log('And this makes 6!!', myCollection);
 
 function showCollection(collection) {
-
+console.log(myCollection[1]);
 }
-console.log()
+showCollection(myCollection);
+console.log(myCollection);
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
 // as a lil' chunk of friendly code that you don't need to understand right now.
 // (It's used for automated testing.)
