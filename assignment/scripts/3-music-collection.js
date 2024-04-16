@@ -36,13 +36,12 @@ function showCollection(collection) {
 }
 showCollection(myCollection);
 
-function findByArtist(collection, artist) {
-  let results = [];
-
-  for (let i = 0; i < collection.length; i++) {
-    const album = collection[i];
-    if (artist === album.artist) {
-      results.push(album);
+function findByArtist(collection, artist) { 
+  let results = []; //initialized array for results
+  for (let i = 0; i < collection.length; i++) { //set up for loop
+    const album = collection[i]; //album is collection array at i
+    if (artist === album.artist) { //if artist matches album artist
+      results.push(album); //pushing the album to the results array
     }
   }
 
@@ -50,7 +49,8 @@ function findByArtist(collection, artist) {
 }
 findByArtist(myCollection, 'Linkin Park');
 
-// console.log(myCollection);
+console.log('Looking through the collection: ' ,findByArtist( myCollection, 'Linkin Park'));
+console.log('What about this one? ', findByArtist(myCollection, 'Godsmack'));
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
 // as a lil' chunk of friendly code that you don't need to understand right now.
 // (It's used for automated testing.)
