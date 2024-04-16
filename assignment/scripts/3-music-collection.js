@@ -28,13 +28,20 @@ addToCollection(myCollection, 'Hybrid Theory', 'Linkin Park', 2000);
 console.log('And this makes 6!!', myCollection);
 
 function showCollection(collection) {
-
-  for (i = 0; i<collection.length; i++){
-    console.log(collection[i])
-  }
-//console.log(myCollection[1]);  //use array index to loop?
+	for (let i = 0; i < collection.length; i++) {
+		const album = collection[i];
+		const albumInfo = `${album.title} by ${album.artist}, published in ${album.yearPublished}`;
+		console.log(albumInfo);
+	}
 }
 showCollection(myCollection);
+
+function findByArtist(collection, artist){
+  let results = [];
+  for (let i = 0; i < collection.length; i++){
+    
+  }
+}
 // console.log(myCollection);
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
 // as a lil' chunk of friendly code that you don't need to understand right now.
