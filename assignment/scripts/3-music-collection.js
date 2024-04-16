@@ -28,7 +28,8 @@ addToCollection(myCollection, 'Hybrid Theory', 'Linkin Park', 2000);
 console.log('And this makes 6!!', myCollection);
 
 function showCollection(collection) {
-	for (let i = 0; i < collection.length; i++) { //looping through the collection
+	for (let i = 0; i < collection.length; i++) {
+		//looping through the collection
 		const album = collection[i]; // album is the collection array at i
 		const albumInfo = `${album.title} by ${album.artist}, published in ${album.yearPublished}`; //defining the title, artist, and yearPublished
 		console.log(albumInfo);
@@ -36,21 +37,44 @@ function showCollection(collection) {
 }
 showCollection(myCollection);
 
-function findByArtist(collection, artist) { 
-  let results = []; //initialized array for results
-  for (let i = 0; i < collection.length; i++) { //set up for loop
-    const album = collection[i]; //album is collection array at i
-    if (artist === album.artist) { //if artist matches album artist
-      results.push(album); //pushing the album to the results array
-    }
-  }
+function findByArtist(collection, artist) {
+	let results = []; //initialized array for results
+	for (let i = 0; i < collection.length; i++) {
+		//set up for loop
+		const album = collection[i]; //album is collection array at i
+		if (artist === album.artist) {
+			//if artist matches album artist
+			results.push(album); //pushing the album to the results array
+		}
+	}
 
-  return results;
+	return results;
 }
 findByArtist(myCollection, 'Linkin Park');
 
-console.log('Looking through the collection: ' ,findByArtist( myCollection, 'Linkin Park'));
+console.log('Looking through the collection: ', findByArtist(myCollection, 'Linkin Park'));
 console.log('What about this one? ', findByArtist(myCollection, 'Godsmack'));
+
+function search(collection, searchCriteria) {
+  // If no search criteria provided or if any property is missing, return all albums
+  if (!searchCriteria || !searchCriteria.artist || !searchCriteria.year) {
+    return collection;
+  }
+
+  let results = [];
+
+  for (let i = 0; i < collection.length; i++) {
+    const album = collection[i];
+    if (searchCriteria.artist === album.artist && searchCriteria.year === album.yearPublished) {
+      results.push(album);
+    }
+  }
+  return results;
+}
+
+// Example usage:
+console.log('Can I search by year and artist? ', search(myCollection, { artist: 'Marilyn Manson', year: 2002 }));
+console.log('Do I have the MSI album? ', search(myCollection, { artist: 'Mindless Self Indulgence', year: 2008}));
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
 // as a lil' chunk of friendly code that you don't need to understand right now.
 // (It's used for automated testing.)
