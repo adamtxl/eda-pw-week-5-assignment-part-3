@@ -3,9 +3,17 @@ console.log('***** Music Collection *****')
 let myCollection = []
 
 function addToCollection(collection, title, artist, yearPublished) {
-myCollection.push()
+if (collection.isArray(title, artist, yearPublished)){
+  myCollection.push(...title, artist, yearPublished);
+}
+else {
+  myCollection.push(title, artist, yearPublished);
+}
+return myCollection;
 }
 
+addToCollection(myCollection, 'Never Wanted to Dance', 'Mindless Self Indulgence', '2008');
+console.log('OH yeah forgot this album! ', myCollection);
 
 
 
