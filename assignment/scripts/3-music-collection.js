@@ -14,7 +14,7 @@ function addToCollection(collection, title, artist, yearPublished) {
 	return collection;
 }
 
-addToCollection(myCollection, 'Never Wanted to Dance', 'Mindless Self Indulgence', '2008');
+addToCollection(myCollection, 'Never Wanted to Dance', 'Mindless Self Indulgence', 2008);
 console.log('OH yeah forgot this album! ', myCollection);
 addToCollection(myCollection, 'Meteora', 'Linkin Park', 2003);
 console.log('Adding a second album! ', myCollection);
@@ -28,10 +28,14 @@ addToCollection(myCollection, 'Hybrid Theory', 'Linkin Park', 2000);
 console.log('And this makes 6!!', myCollection);
 
 function showCollection(collection) {
-console.log(myCollection[1]);
+
+  for (i = 0; i<collection.length; i++){
+    console.log(collection[i])
+  }
+//console.log(myCollection[1]);  //use array index to loop?
 }
 showCollection(myCollection);
-console.log(myCollection);
+// console.log(myCollection);
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
 // as a lil' chunk of friendly code that you don't need to understand right now.
 // (It's used for automated testing.)
