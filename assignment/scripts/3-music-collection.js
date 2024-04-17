@@ -7,8 +7,7 @@ function addToCollection(collection, title, artist, yearPublished, tracks) {
 		title: title,
 		artist: artist,
 		yearPublished: yearPublished,
-    tracks: tracks,
-
+		tracks: tracks
 	};
 
 	collection.push(newAlbum);
@@ -16,7 +15,7 @@ function addToCollection(collection, title, artist, yearPublished, tracks) {
 	return collection;
 }
 
-addToCollection(myCollection, 'Never Wanted to Dance', 'Mindless Self Indulgence', 2008);
+addToCollection(myCollection, 'Never Wanted to Dance', 'Mindless Self Indulgence', 2008, ['Never wanted to dance', 'Shut me up']);
 console.log('OH yeah forgot this album! ', myCollection);
 addToCollection(myCollection, 'Meteora', 'Linkin Park', 2003, ['Somewhere I Belong', 'Dont stay']);
 console.log('Adding a second album! ', myCollection);
@@ -31,10 +30,12 @@ console.log('And this makes 6!!', myCollection);
 
 function showCollection(collection) {
 	for (let i = 0; i < collection.length; i++) {
-		//looping through the collection
-		const album = collection[i]; // album is the collection array at i
-		const albumInfo = `${album.title} by ${album.artist}, published in ${album.yearPublished}
-    Tracks: ${tracks}`; //defining the title, artist, and yearPublished
+		const album = collection[i];
+		let albumInfo = `${album.title} by ${album.artist}, published in ${album.yearPublished}:\n`;
+		for (let j = 0; j < album.tracks.length; j++) {
+			const track = album.tracks[j];
+			albumInfo += `    ${j + 1}. ${track.name}: ${track.duration}\n`;
+		}
 		console.log(albumInfo);
 	}
 }
