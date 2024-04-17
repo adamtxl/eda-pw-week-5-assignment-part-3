@@ -2,11 +2,13 @@ console.log('***** Music Collection *****');
 // Safe Zone -- Write code below this line
 let myCollection = [];
 
-function addToCollection(collection, title, artist, yearPublished, []) {
+function addToCollection(collection, title, artist, yearPublished, tracks) {
 	let newAlbum = {
 		title: title,
 		artist: artist,
 		yearPublished: yearPublished,
+    tracks: tracks,
+
 	};
 
 	collection.push(newAlbum);
@@ -16,7 +18,7 @@ function addToCollection(collection, title, artist, yearPublished, []) {
 
 addToCollection(myCollection, 'Never Wanted to Dance', 'Mindless Self Indulgence', 2008);
 console.log('OH yeah forgot this album! ', myCollection);
-addToCollection(myCollection, 'Meteora', 'Linkin Park', 2003);
+addToCollection(myCollection, 'Meteora', 'Linkin Park', 2003, ['Somewhere I Belong', 'Dont stay']);
 console.log('Adding a second album! ', myCollection);
 addToCollection(myCollection, 'Beautiful People', 'Marilyn Manson', 2002);
 console.log('Now there is 3! ', myCollection);
@@ -31,7 +33,8 @@ function showCollection(collection) {
 	for (let i = 0; i < collection.length; i++) {
 		//looping through the collection
 		const album = collection[i]; // album is the collection array at i
-		const albumInfo = `${album.title} by ${album.artist}, published in ${album.yearPublished}`; //defining the title, artist, and yearPublished
+		const albumInfo = `${album.title} by ${album.artist}, published in ${album.yearPublished}
+    Tracks: ${tracks}`; //defining the title, artist, and yearPublished
 		console.log(albumInfo);
 	}
 }
