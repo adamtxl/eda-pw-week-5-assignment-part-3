@@ -2,7 +2,7 @@ console.log('***** Music Collection *****');
 // Safe Zone -- Write code below this line
 let myCollection = [];
 
-function addToCollection(collection, title, artist, yearPublished) {
+function addToCollection(collection, title, artist, yearPublished, []) {
 	let newAlbum = {
 		title: title,
 		artist: artist,
@@ -56,25 +56,30 @@ console.log('Looking through the collection: ', findByArtist(myCollection, 'Link
 console.log('What about this one? ', findByArtist(myCollection, 'Godsmack'));
 
 function search(collection, searchCriteria) {
-  // If no search criteria provided or if any property is missing, return all albums
-  if (!searchCriteria || !searchCriteria.artist || !searchCriteria.year) {
-    return collection;
-  }
+	// If no search criteria provided or if any property is missing, return all albums
+	if (!searchCriteria || !searchCriteria.artist || !searchCriteria.year) {
+		return collection;
+	}
 
-  let results = [];
+	let results = [];
 
-  for (let i = 0; i < collection.length; i++) {
-    const album = collection[i];
-    if (searchCriteria.artist === album.artist && searchCriteria.year === album.yearPublished) {
-      results.push(album);
-    }
-  }
-  return results;
+	for (let i = 0; i < collection.length; i++) {
+		const album = collection[i];
+		if (searchCriteria.artist === album.artist && searchCriteria.year === album.yearPublished) {
+			//if search artist = artist in album then return album
+			results.push(album); //pushing the album into the results
+		} else {
+			return results; //returns an empty array
+		}
+	}
+	return results;
 }
 
 // Example usage:
 console.log('Can I search by year and artist? ', search(myCollection, { artist: 'Marilyn Manson', year: 2002 }));
-console.log('Do I have the MSI album? ', search(myCollection, { artist: 'Mindless Self Indulgence', year: 2008}));
+console.log('Do I have the MSI album? ', search(myCollection, { artist: 'Mindless Self Indulgence', year: 2008 }));
+console.log('I cannot remember the name of that song! Do I have the album?', search(myCollection));
+console.log('Wait, I remember buying AC/DC as a kid! ', search(myCollection, { artist: 'AC/DC', year: 1985 }));
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
 // as a lil' chunk of friendly code that you don't need to understand right now.
 // (It's used for automated testing.)
